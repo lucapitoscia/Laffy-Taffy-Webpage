@@ -1,0 +1,436 @@
+/* 
+Luca Pitoscia
+200290440
+March 25 2024 - March 31 2024
+How Sweet It Is Assignment
+*/
+
+/* Resetting default margins, paddings, and box-sizing for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Setting the base font, background color, text color, and line height for the body */
+body {
+    font-family: 'Chewy', cursive;
+    background: #f767c2;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+/* Styling for container classes, setting max width, and centering them */
+.container, .header-container {
+    max-width: 90%; 
+    margin: auto;
+    padding: 0 2vw; 
+}
+
+/* Flexbox setup for header container to align and space its child elements */
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Header background, padding, and text color */
+header {
+    background: #ffffff;
+    padding: 1rem 0; 
+    color: #fff;
+}
+
+/* Logo styling, setting max width and a smooth scaling effect on hover */
+.logo {
+    max-width: 15vw; 
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+/* Styling navigation links, including display, alignment, and removing list style */
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+/* Link appearance, spacing, font styling, and hover effects */
+.nav-links li a {
+    color: #f767c2;
+    padding: 0.5rem 1vw; 
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+    font-family: 'Chewy', cursive;
+    font-size: 1.25rem; 
+    border-radius: 5px;
+    background-color: transparent;
+}
+
+.nav-links li a:hover {
+    color: #ffffff;
+    background-color: #29cd31;
+}
+
+/* Background container styling with dynamic image, alignment, and hover effect to change the image */
+.background-container {
+    width: 100%; 
+    height: 85vh; 
+    background-image: url('images/background.jpg');
+    background-size: cover; 
+    background-position: center; 
+    transition: background-image 0.5s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Styling for a hoverable area within the background container */
+.hover-area {
+    padding: 1rem;
+    background-color: #000000;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Changing the background image on hover over the background container */
+.background-container:hover {
+    background-image: url('images/background2.jpeg');
+}
+
+/* Hiding the header in the background container so it passes validation without header being seen */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* Base styling for the products section */
+.products {
+    padding: 50px 0;
+    text-align: center;
+}
+
+/* Specific styling for the heading within the products section */
+.products h2 {
+    background-color: #ffffff;
+    color: #333;
+    padding: 0.5rem 1rem; 
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: inline-block;
+    margin: 20px 0;
+    font-size: 1.75rem;  
+}
+
+
+
+/* Sets up a horizontal scroll area for the product carousel */
+.product-carousel {
+    overflow-x: auto;
+    white-space: nowrap;
+    scroll-snap-type: x mandatory; 
+    padding: 20px 0;
+}
+
+/* Aligns carousel items in a row without wrapping */
+.carousel-container {
+    display: inline-flex;
+}
+
+/* Styles individual product items, making them responsive and ensuring they don't shrink or grow */
+.product-item {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 250px; 
+    margin-right: 20px; 
+    flex: 0 0 auto;
+    scroll-snap-align: start; 
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,.1); 
+    padding: 20px; 
+    text-align: center;
+    box-sizing: border-box;
+    height: auto; 
+}
+
+/* Styles for product images, including size adjustments and transition effect on hover */
+.product-item img {
+    width: 100%;
+    height: 150px; 
+    object-fit: cover; 
+    margin-bottom: 10px; 
+    transition: transform 0.3s ease; 
+}
+
+/* Scales up the product image slightly on hover */
+.product-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Styles for the text inside product-info, setting size, color, and spacing */
+.product-info h3, .product-info p {
+    font-size: 18px; 
+    color: #333;
+    margin: 0 0 10px; 
+    white-space: normal; 
+    overflow-wrap: break-word; 
+}
+
+/* Changes text color for product info on hover based on the flavor */
+.product-item:hover .product-info.banana-flavor h3,
+.product-item:hover .product-info.banana-flavor p {
+    color: #FFD700; /* Banana flavor text color */
+}
+.product-item:hover .product-info.cherry-flavor h3,
+.product-item:hover .product-info.cherry-flavor p {
+    color: #D32F2F; /* Cherry flavor text color */
+}
+
+.product-item:hover .product-info.blue-raspberry-flavor h3,
+.product-item:hover .product-info.blue-raspberry-flavor p {
+    color: #1976D2; /* Blue Raspberry flavor text color */
+}
+
+.product-item:hover .product-info.grape-flavor h3,
+.product-item:hover .product-info.grape-flavor p {
+    color: #7B1FA2; /* Grape flavor text color */
+}
+
+.product-item:hover .product-info.sour-apple-flavor h3,
+.product-item:hover .product-info.sour-apple-flavor p {
+    color: #388E3C; /* Sour Apple flavor text color */
+}
+
+.product-item:hover .product-info.strawberry-flavor h3,
+.product-item:hover .product-info.strawberry-flavor p {
+    color: #E91E63; /* Strawberry flavor text color */
+}
+/* Hides the scrollbar for the product carousel to clean up the appearance */
+.product-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+/* Adjusts product items' width on smaller screens for a responsive design */
+@media (max-width: 768px) {
+    .product-item {
+        width: calc(50% - 20px); 
+    }
+}
+
+/* Container for the mission section with a background image, positioned text */
+.mission-container {
+    position: relative;
+    text-align: center;
+    margin: auto;
+    width: 100%; 
+    overflow: hidden; 
+}
+
+/* Styles for the background image in the mission section */
+.mission-background {
+    width: 100%; 
+    height: auto; 
+    background-size: cover; 
+    background-position: center; 
+    transition: transform 0.3s ease; 
+}
+
+/* Hover effect for the mission background to slightly scale up */
+.mission-background:hover {
+    transform: scale(1.05);
+}
+
+/* Styling for the overlay text on the mission background, including positioning and background */
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    color: white;
+    background: rgba(0, 0, 0, 0.5); 
+    padding: 20px;
+    border-radius: 8px; 
+    font-size: 18px; 
+}
+
+/* Styles for the Latest News section with a lighter background and padding */
+.latest-news {
+    background-color: #f8f8f8; 
+    padding: 60px 20px; 
+    margin-top: 50px;
+    margin-bottom: 50px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+    border-radius: 8px; 
+}
+
+/* Container within the Latest News section, centered and stacked */
+.latest-news .container {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+    gap: 20px; 
+}
+
+/* Heading style within the Latest News section */
+.latest-news h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 28px; 
+    font-weight: bold; 
+}
+
+/* Paragraph style within the Latest News, centered with max width */
+.latest-news p {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 18px; 
+    line-height: 1.5; 
+    width: 100%; 
+    text-align: left; 
+    max-width: 80%; 
+    margin-left: auto; 
+    margin-right: auto; 
+}
+
+/* Button style within the Latest News for subscriptions */
+.latest-news button {
+    padding: 12px 30px; 
+    background-color: #f767c2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s; 
+    font-family: 'Chewy', cursive;
+    font-size: 18px; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); 
+    align-self: center; 
+}
+
+/* Hover effect for the subscription button */
+.latest-news button:hover {
+    background-color: #29cd31;
+    transform: translateY(-3px); 
+}
+
+/* Responsive adjustments for the Latest News section */
+@media (min-width: 768px) {
+    .latest-news .container {
+        flex-direction: column; 
+        text-align: center; 
+    }
+
+    .latest-news p {
+        text-align: left; 
+        max-width: 100%; 
+    }
+}
+
+/* Contact Us section styling with background and text alignment */
+.contact .container {
+    max-width: 1400px;
+    margin: auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* Heading style in the Contact Us section */
+.contact h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+/* Input and textarea styling in the Contact Us form */
+.contact form input[type="text"],
+.contact form input[type="email"],
+.contact form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+/* Textarea specific styling, allowing vertical resize */
+.contact form textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+/* Submit button styling in the Contact Us form */
+.contact form button[type="submit"] {
+    background-color: #f767c2;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s;
+    font-family: 'Chewy', cursive;
+}
+
+/* Hover effect for the submit button */
+.contact form button[type="submit"]:hover {
+    background-color: #29cd31;
+}
+
+/* Footer styling with positioning and background */
+footer {
+    position: relative;
+    background-color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+    border-top: 1px solid #e7e7e7;
+    margin-top: 50px;
+}
+
+/* Container within the footer, centered and flex */
+footer .container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+}
+
+/* Footer logo positioning and size */
+footer .logo {
+    position: absolute;
+    bottom: 0px;
+    left: 20px;
+    width: 100px;
+    height: auto;
+}
+
+/* Footer paragraph styling */
+footer p {
+    color: #333;
+    font-size: 16px;
+    margin: 0;
+    text-align: center;
+}
+
