@@ -80,7 +80,7 @@ header {
 .background-container {
     width: 100%; 
     height: 85vh; 
-    background-image: url('images/background.jpg');
+    background-image: url("../images/background.jpg");
     background-size: cover; 
     background-position: center; 
     transition: background-image 0.5s ease-in-out;
@@ -100,7 +100,7 @@ header {
 
 /* Changing the background image on hover over the background container */
 .background-container:hover {
-    background-image: url('images/background2.jpeg');
+    background-image: url("../images/background2.jpeg");
 }
 
 /* Hiding the header in the background container so it passes validation without header being seen */
